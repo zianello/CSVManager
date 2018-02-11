@@ -36,6 +36,7 @@ public class PublicStrings {
 		SPL,
 		LP,
 		NBA,	
+		BLG,	//Belgium Jupiter League
 		SWL,	//Svezia	Allsvenskan
 		FLV,	//Finlandia	Veikkausliiga
 		DSP,	//Danimarca SuperLeague
@@ -56,7 +57,8 @@ public class PublicStrings {
 		BET365,
 		BETCLIC,
 		BETTER,
-		EUROBET
+		EUROBET,
+		SKYBET
 	}
 	
 	public static enum bet_types {

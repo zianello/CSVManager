@@ -2,6 +2,7 @@ package betting.manager;
 
 import java.awt.GridLayout;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -10,8 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import betting.betters.BetClic;
 import betting.betters.BetFair;
 import betting.betters.BetFairExchange;
+import betting.betters.SkyBet;
 import betting.betters.WilliamHill;
 import betting.db.entitites.BetRow;
 import betting.exceptions.BetterNotFoundException;
@@ -28,18 +31,18 @@ public class CSVMain {
 	//args[1]: better
 	//args[2]: bet_type
 	//args[3]: league
-	public static void main(String[] args) throws BetterNotFoundException{
+	public static void main(String[] args) throws BetterNotFoundException, IOException{
 
 		System.out.println("start time: " + Calendar.getInstance().getTime());
 		//PublicStrings.sports.valueOf(args[0]); //serve per testare l'eccezione ArrayIndexOutOfBoundSException
-		startCommandLine(args);
+//		startCommandLine(args);
 		//fakeCommandLine();
-		//startVisualBox();
+		startVisualBox();
 		System.out.println("end time: " + Calendar.getInstance().getTime());
 
 	}
 
-	public static void fakeCommandLine() throws BetterNotFoundException{
+	public static void fakeCommandLine() throws BetterNotFoundException, IOException{
 		String[] args = new String[3];
 		args[0] = PublicStrings.sports.CALCIO.toString();
 		args[1] = PublicStrings.betters.WHILL.toString();
@@ -47,7 +50,7 @@ public class CSVMain {
 		startCommandLine(args);
 	}
 
-	public static void startCommandLine(String[] args) throws BetterNotFoundException{
+	public static void startCommandLine(String[] args) throws BetterNotFoundException, IOException{
 
 		BetType bt = new BetType();
 		try{
@@ -67,7 +70,7 @@ public class CSVMain {
 
 	
 
-	public static void startVisualBox() throws BetterNotFoundException{
+	public static void startVisualBox() throws BetterNotFoundException, IOException{
 
 		JComboBox<PublicStrings.sports> sport = new JComboBox<PublicStrings.sports>(PublicStrings.sports.values());
 		JComboBox<PublicStrings.betters> better = new JComboBox<PublicStrings.betters>(PublicStrings.betters.values());
@@ -103,7 +106,7 @@ public class CSVMain {
 
 	 }
 
-	public static void Update_Odds(BetType bt) throws BetterNotFoundException{
+	public static void Update_Odds(BetType bt) throws BetterNotFoundException, IOException{
 		String filePath = Utils.createCSVfileName(bt);
 		if(bt.getLeague() != null )
 			try{
@@ -121,7 +124,7 @@ public class CSVMain {
 
 	}
 
-	public static void UpdateFile(BetType bt, String filePath) throws BetterNotFoundException, NoOddsException{
+	public static void UpdateFile(BetType bt, String filePath) throws BetterNotFoundException, NoOddsException, IOException{
 
 		try{
 			ArrayList<BetRow> today = new ArrayList<BetRow>();
@@ -139,6 +142,14 @@ public class CSVMain {
 							 today = BetFair.getTodayMatches(bt);
 //							 filePath = BetFair.getFilePath(bt);
 							 break;
+				case SKYBET : 
+							 today = SkyBet.getTodayMatches(bt);
+		//					 filePath = BetFair.getFilePath(bt);
+							 break;
+				case BETCLIC : 
+							 today = BetClic.getTodayMatches(bt);
+		//					 filePath = BetFair.getFilePath(bt);
+							 break;	 
 				default : throw new BetterNotFoundException();
 			}
 
