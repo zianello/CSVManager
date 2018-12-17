@@ -35,9 +35,9 @@ public class CSVMain {
 
 		System.out.println("start time: " + Calendar.getInstance().getTime());
 		//PublicStrings.sports.valueOf(args[0]); //serve per testare l'eccezione ArrayIndexOutOfBoundSException
-//		startCommandLine(args);
+		startCommandLine(args);
 		//fakeCommandLine();
-		startVisualBox();
+//		startVisualBox();
 		System.out.println("end time: " + Calendar.getInstance().getTime());
 
 	}
