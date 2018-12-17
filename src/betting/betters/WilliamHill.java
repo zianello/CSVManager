@@ -223,23 +223,23 @@ public class WilliamHill {
 	
 	private static Map<BetType, String> createLinksMap(){
 		Map<BetType, String> leagueLinksList = new HashMap<BetType, String>();
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.BL), "3470/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.PL), "343/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.LIGA), "5323/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.A), "4002/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.ED), "2588/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.L1), "3118/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.LP), "4706/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.SPL), "1355/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.BL), "11884737/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.PL), "11884717/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.LIGA), "11884760/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.A), "11884743/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.ED), "11884728/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.L1), "11884734/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.LP), "11884753/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.SPL), "11884719/Esito+Finale+1X2.html");
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.SWL), "5499/Esito+Finale+1X2.html");
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.FLV), "3028/Esito+Finale+1X2.html");
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.DSP), "8244175/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.RL1), "4883/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.RL1), "11884755/Esito+Finale+1X2.html");
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.MLS), "6471/Esito+Finale+1X2.html");
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.NTL), "4442/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.ECS), "1005/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.ECS), "11884714/Esito+Finale+1X2.html");
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.RPL), "4971/Esito+Finale+1X2.html");
-		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.TSL), "5852/Esito+Finale+1X2.html");
+		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.ESITO1X2, leagues.TSL), "11884747/Esito+Finale+1X2.html");
 		
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.GOAL_NOGOAL, leagues.A), "94690/Goal+No+Goal.html");
 		leagueLinksList.put(new BetType(sports.CALCIO, betters.WHILL, bet_types.GOAL_NOGOAL, leagues.LIGA), "102020/Goal+No+Goal.html");

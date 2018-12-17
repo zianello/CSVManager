@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import betting.db.entitites.BetRow;
 import betting.exceptions.NoOddsException;
@@ -19,11 +24,6 @@ import betting.utils.PublicStrings.bet_types;
 import betting.utils.PublicStrings.betters;
 import betting.utils.PublicStrings.leagues;
 import betting.utils.PublicStrings.sports;
-
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlRadioButtonInput;
 
 public class BetClic {
 	
@@ -51,21 +51,7 @@ public class BetClic {
 		
 		String source = getLeagueLink(bt);
 		Document doc = Jsoup.connect(source).get();
-	  
-		WebClient webClient = new WebClient(BrowserVersion.FIREFOX_45);
-		HtmlPage page = webClient.getPage("https://www.betclic.it/calcio/serie-a-e6");
 		
-		HtmlRadioButtonInput htmlButton = (HtmlRadioButtonInput) page.getHtmlElementById("input-Ftb_Dbc");
-		
-        HtmlPage htmlPage = (HtmlPage) htmlButton.click();
-        
-		System.out.println(htmlButton.asXml());
-		PrintWriter out = new PrintWriter("doc.txt");
-		  out.print(htmlPage.asXml());
-		  out.close();
-		webClient.close();
-	  
-	  
 	  Elements dates = doc.getElementsByAttribute("data-date");
 	  
 	  ArrayList<BetRow> listBets = new ArrayList<BetRow>();
