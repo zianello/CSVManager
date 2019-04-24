@@ -29,9 +29,9 @@ public class WilliamHill {
 	private static final String FILE_PREFIX= "wh_";
 	
 	private static final String LINK_START = "http://sports.williamhill.it/bet_ita/it/betting/";
-	private static final String LINK_END = "Money-Line.html";
+	private static final String LINK_END = "Testa+a+Testa.html";
 	
-	private static final String LINK_BASKET = "y/";
+	private static final String LINK_BASKET = "g/";
 	private static final String LINK_SOCCER = "g/";
 	
 	private static final String LINK_COD_BASKET_NBA = "8371/";
