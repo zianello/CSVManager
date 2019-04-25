@@ -1,20 +1,14 @@
 package betting.betters;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import betting.db.entitites.BetRow;
 import betting.exceptions.NoOddsException;
@@ -49,57 +43,57 @@ public class BetClic {
 
 	private static ArrayList<BetRow> getTodaySoccerMatches(BetType bt) throws NoOddsException, IOException{
 		
-		String source = getLeagueLink(bt);
-		Document doc = Jsoup.connect(source).get();
+		  String source = getLeagueLink(bt);
+		  Document doc = Jsoup.connect(source).get();
 		
-	  Elements dates = doc.getElementsByAttribute("data-date");
-	  
-	  ArrayList<BetRow> listBets = new ArrayList<BetRow>();
-	  ArrayList<String[]> total = new ArrayList<String[]>();	
-	  
-	  for(int y = 0; y < dates.size(); y++){
-	  
-		  Elements time = dates.get(y).getElementsByTag(BC_TIME_CLASS);
-		  Elements matches = dates.get(y).getElementsByClass(BC_MATCH_CLASS);
-		  Elements quotes = dates.get(y).getElementsByClass(BC_ODDS_CLASS);
+		  Elements dates = doc.getElementsByAttribute("data-date");
 		  
-		  for(int i = 0; i < matches.size(); i++){
-			  String[] match = new String[6];
-			  String[] m = matches.get(i).getElementsByTag("a").text().split("-");
-			  match[0] = time.get(0).text();	//data
-			  match[1] = m[0].trim();			//home
-			  match[2] = m[1].trim();			//away
-			  String[] q = quotes.get(i).text().split(" ");
-			  match[3] = q[0].replace(",", ".").trim();			//1
-			  match[4] = q[1].replace(",", ".").trim();			//X
-			  match[5] = q[2].replace(",", ".").trim();			//2
-			  total.add(match);
+		  ArrayList<BetRow> listBets = new ArrayList<BetRow>();
+		  ArrayList<String[]> total = new ArrayList<String[]>();	
+		  
+		  for(int y = 0; y < dates.size(); y++){
+		  
+			  Elements time = dates.get(y).getElementsByTag(BC_TIME_CLASS);
+			  Elements matches = dates.get(y).getElementsByClass(BC_MATCH_CLASS);
+			  Elements quotes = dates.get(y).getElementsByClass(BC_ODDS_CLASS);
+			  
+			  for(int i = 0; i < matches.size(); i++){
+				  String[] match = new String[6];
+				  String[] m = matches.get(i).getElementsByTag("a").text().split("-");
+				  match[0] = time.get(0).text();	//data
+				  match[1] = m[0].trim();			//home
+				  match[2] = m[1].trim();			//away
+				  String[] q = quotes.get(i).text().split(" ");
+				  match[3] = q[0].replace(",", ".").trim();			//1
+				  match[4] = q[1].replace(",", ".").trim();			//X
+				  match[5] = q[2].replace(",", ".").trim();			//2
+				  total.add(match);
+			  }
 		  }
-	  }
-	  
-	  for(int w = 0; w < total.size(); w++) {
 		  
-		  Map<bet_types, ArrayList<String>> betList = PublicStrings.betTypeList;
-		  List<String> betTypeList = betList.get(bt.getBet_type());
-		  
-		  for(int i = 0; i < betTypeList.size(); i++){
-			  int y = 3+i;
-			  BetRow r = new BetRow(total.get(w)[1],total.get(w)[2],
-					  Float.parseFloat(total.get(w)[y]),
-					  bt.getBet_type().toString(),
-					  total.get(w)[0],
-					  bt.getLeague().toString(),
-					  bt.getBetter().toString(),
-					  betTypeList.get(i),
-					  PublicStrings.SIST_PROV,
-					  bt.getSport().toString()
-					  );
-			  listBets.add(r);  
-			  r.printBet();
+		  for(int w = 0; w < total.size(); w++) {
+			  
+			  Map<bet_types, ArrayList<String>> betList = PublicStrings.betTypeList;
+			  List<String> betTypeList = betList.get(bt.getBet_type());
+			  
+			  for(int i = 0; i < betTypeList.size(); i++){
+				  int y = 3+i;
+				  BetRow r = new BetRow(total.get(w)[1],total.get(w)[2],
+						  Float.parseFloat(total.get(w)[y]),
+						  bt.getBet_type().toString(),
+						  total.get(w)[0],
+						  bt.getLeague().toString(),
+						  bt.getBetter().toString(),
+						  betTypeList.get(i),
+						  PublicStrings.SIST_PROV,
+						  bt.getSport().toString()
+						  );
+				  listBets.add(r);  
+				  r.printBet();
+			  }
 		  }
-	  }
-	  
-	  return null;
+		  
+		  return listBets;
 	}
 
 	private static Map<BetType, String> createLinksMap(){
